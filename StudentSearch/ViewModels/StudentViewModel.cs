@@ -1,8 +1,6 @@
 ﻿using StudentSearch.Commands;
 using StudentSearch.Models;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace StudentSearch.ViewModels;
 

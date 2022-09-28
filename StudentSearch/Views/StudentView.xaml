@@ -33,20 +33,33 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1" Grid.Row="1"
-                    DataContext="{Binding SelectedStudent}">
-            <DockPanel>
-                <TextBlock FontSize="16" Text="ФИО: " />
-                <TextBlock FontSize="16" Text="{Binding FIO}" />
-            </DockPanel>
-            <DockPanel>
-                <TextBlock FontSize="16" Text="Логин: " />
-                <TextBox IsReadOnly="True" BorderBrush="White" BorderThickness="0" FontSize="16" Text="{Binding ShifrTranslit, Mode=OneWay, StringFormat={}{0}@sibupk.su}" />
-            </DockPanel>
-            <DockPanel>
-                <TextBlock FontSize="16" Text="Пароль: " />
-                <TextBox IsReadOnly="True" BorderBrush="White" BorderThickness="0" FontSize="16" Text="{Binding Password, Mode=OneWay}" />
-            </DockPanel>
-        </StackPanel>
+        <Border Grid.Column="1" Grid.Row="1"
+                Margin="0 5 0 0"
+                BorderThickness="1"
+                BorderBrush="Gray">
+            <StackPanel DataContext="{Binding SelectedStudent}"
+                        Margin="5 7 0 0">
+                <DockPanel>
+                    <TextBlock FontSize="16" Text="ФИО: " />
+                    <TextBlock FontSize="16" Text="{Binding FIO}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock FontSize="16" Text="Курс: " />
+                    <TextBlock FontSize="16" Text="{Binding Kurs}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock FontSize="16" Text="Специальность: " />
+                    <TextBlock FontSize="16" Text="{Binding Spec}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock FontSize="16" Text="Логин: " />
+                    <TextBox IsReadOnly="True" BorderBrush="White" BorderThickness="0" FontSize="16" Text="{Binding ShifrTranslit, Mode=OneWay, StringFormat={}{0}@sibupk.su}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock FontSize="16" Text="Пароль: " />
+                    <TextBox IsReadOnly="True" BorderBrush="White" BorderThickness="0" FontSize="16" Text="{Binding Password, Mode=OneWay}" />
+                </DockPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
