@@ -29,7 +29,7 @@ public class Student
     }
     public static IEnumerable<Student> GetStudents()
     {
-        string filePath = @"\\svmdc2\AddStudents\Students.csv";
+        string filePath = File.ReadAllLines("Path.txt")[0];
         FileStream fileStream = File.OpenRead(filePath);
         using (StreamReader reader = new(fileStream, Encoding.Default))
         {
