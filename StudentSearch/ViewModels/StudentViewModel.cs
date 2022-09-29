@@ -26,7 +26,7 @@ public class StudentViewModel : BaseViewModel
             OnPropertyChanged(nameof(SelectedStudent));
         }
     }
-    private ObservableCollection<Student>? _students;
+    private ObservableCollection<Student>? _students = new();
     public ObservableCollection<Student>? Students
     {
         get => _students;
@@ -37,8 +37,10 @@ public class StudentViewModel : BaseViewModel
         }
     }
     public BaseCommand SearchCommand { get; }
+    public BaseCommand ClearCommand { get; }
     public StudentViewModel()
     {
-        SearchCommand = new SearchCommand(this); 
+        SearchCommand = new SearchCommand(this);
+        ClearCommand = new ClearCommand(this);
     }
 }

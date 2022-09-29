@@ -19,8 +19,11 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBox Grid.ColumnSpan="2" Height="25" Text="{Binding Searcher, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Margin="162,0,376,0" />
-        <Button Grid.ColumnSpan="2" Command="{Binding SearchCommand}" Content="Поиск" Width="100" Margin="511,0,189,0" />
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Grid.ColumnSpan="2" Width="250" Height="25" Text="{Binding Searcher, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
+            <Button Margin="30 0 0 0" Grid.ColumnSpan="2" Command="{Binding SearchCommand}" Content="Поиск" Width="100" />
+            <Button Margin="30 0 0 0" Command="{Binding ClearCommand}" Width="100" Content="Очистить" />
+        </StackPanel>
         <ListBox Grid.Row="1" ItemsSource="{Binding Students}"
                  SelectedItem="{Binding SelectedStudent}"
                  Margin="0 5 0 0">
