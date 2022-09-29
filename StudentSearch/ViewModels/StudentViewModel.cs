@@ -6,14 +6,14 @@ namespace StudentSearch.ViewModels;
 
 public class StudentViewModel : BaseViewModel
 {
-    private string? _fioSearch;
-    public string? FioSearch
+    private string? _searcher;
+    public string? Searcher
     {
-        get => _fioSearch;
+        get => _searcher;
         set
         {
-            _fioSearch = value;
-            OnPropertyChanged(nameof(FioSearch));
+            _searcher = value;
+            OnPropertyChanged(nameof(Searcher));
         }
     }
     private Student? _selectedStudent;

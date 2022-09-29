@@ -1,5 +1,4 @@
 ﻿using StudentSearch.Helpers;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,24 +7,29 @@ namespace StudentSearch.Models;
 
 public class Student
 {
-    public string FIO{ get; }
-    public string Shifr{ get; }
-    public string Spec{ get; }
-    public string Password{ get; }
-    public string Kurs{ get; }
-    public string FObuch{ get; }
+    public string Fio { get; }
+    public string Shifr { get; }
+    public string ShifrTranslit { get; }
+    public string Spec { get; }
+    public string Password { get; }
+    public string Kurs { get; }
+    public string FObuch { get; }
     public Student(string fio, string shifr, string spec, string password, string kurs, string fObuch)
     {
-        FIO = fio;
+        Fio = fio;
         Shifr = shifr;
+        ShifrTranslit = new StudentShifrTranslitter(shifr).Translit();
         Spec = spec;
         Password = password;
         Kurs = kurs;
         FObuch = fObuch;
     }
-    public string ShifrTranslit
+    public bool Contains(string searcher)
     {
-        get => new StudentShifrTranslitter(Shifr).Translit();
+        searcher = searcher.ToLower();
+        return Fio.ToLower().Contains(searcher) ||
+            Shifr.ToLower().Contains(searcher) ||
+            ShifrTranslit.ToLower().Contains(searcher);
     }
     public static IEnumerable<Student> GetStudents()
     {

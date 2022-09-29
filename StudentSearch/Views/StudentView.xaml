@@ -19,7 +19,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBox Grid.ColumnSpan="2" Height="25" Text="{Binding FioSearch}" VerticalContentAlignment="Center" Margin="162,0,376,0" />
+        <TextBox Grid.ColumnSpan="2" Height="25" Text="{Binding Searcher, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Margin="162,0,376,0" />
         <Button Grid.ColumnSpan="2" Command="{Binding SearchCommand}" Content="Поиск" Width="100" Margin="511,0,189,0" />
         <ListBox Grid.Row="1" ItemsSource="{Binding Students}"
                  SelectedItem="{Binding SelectedStudent}"
@@ -27,7 +27,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock FontSize="18" Text="{Binding FIO}" />
+                        <TextBlock FontSize="18" Text="{Binding Fio}" />
                         <TextBlock FontSize="18" Text="{Binding Shifr}" />
                     </StackPanel>
                 </DataTemplate>
@@ -41,7 +41,7 @@
                         Margin="5 7 0 0">
                 <DockPanel>
                     <TextBlock FontSize="16" Text="ФИО: " />
-                    <TextBlock FontSize="16" Text="{Binding FIO}" />
+                    <TextBlock FontSize="16" Text="{Binding Fio}" />
                 </DockPanel>
                 <DockPanel>
                     <TextBlock FontSize="16" Text="Курс: " />

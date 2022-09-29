@@ -1,6 +1,10 @@
 ﻿using StudentSearch.Models;
 using StudentSearch.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 
 namespace StudentSearch.Commands;
 
@@ -10,13 +14,26 @@ public class SearchCommand : BaseCommand
     public SearchCommand(StudentViewModel vm)
     {
         _vm = vm;
+        _vm.PropertyChanged += OnViewModelPropertyChange;
+    }
+    public override bool CanExecute(object? parameter)
+    {
+        return !string.IsNullOrEmpty(_vm.Searcher);
     }
     public override void Execute(object? parameter)
     {
-        _vm.Students = new(Student.GetStudents().Where(x => Contain(x)));
+        IEnumerable<Student>? searchResult = Student.GetStudents().Where(x => x.Contains(_vm.Searcher));
+        _vm.Students = new(searchResult);
+        if (!searchResult.Any())
+        {
+            MessageBox.Show("Ничего не найдено");
+        }
     }
-    private bool Contain(Student x)
+    private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
     {
-        return x.FIO.ToLower().Contains(_vm.FioSearch.ToLower());
+        if (e.PropertyName == nameof(_vm.Searcher))
+        {
+            OnCanExecuteChanged();
+        }
     }
 }
