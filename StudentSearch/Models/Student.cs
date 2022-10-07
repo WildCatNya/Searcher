@@ -1,9 +1,9 @@
-﻿using StudentSearch.Helpers;
+﻿using Searcher.Helpers;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace StudentSearch.Models;
+namespace Searcher.Models;
 
 public class Student
 {

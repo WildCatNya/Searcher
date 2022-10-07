@@ -1,8 +1,8 @@
-﻿using StudentSearch.Commands;
-using StudentSearch.Models;
+﻿using Searcher.Commands;
+using Searcher.Models;
 using System.Collections.ObjectModel;
 
-namespace StudentSearch.ViewModels;
+namespace Searcher.ViewModels;
 
 public class StudentViewModel : BaseViewModel
 {

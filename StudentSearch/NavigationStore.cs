@@ -1,7 +1,7 @@
-﻿using StudentSearch.ViewModels;
+﻿using Searcher.ViewModels;
 using System;
 
-namespace StudentSearch;
+namespace Searcher;
 
 public class NavigationStore
 {

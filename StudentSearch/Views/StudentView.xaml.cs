@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace StudentSearch.Views
+namespace Searcher.Views
 {
     /// <summary>
     /// Логика взаимодействия для StudentView.xaml

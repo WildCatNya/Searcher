@@ -1,4 +1,4 @@
-﻿namespace StudentSearch.ViewModels;
+﻿namespace Searcher.ViewModels;
 
 public class MainWindowViewModel : BaseViewModel
 {

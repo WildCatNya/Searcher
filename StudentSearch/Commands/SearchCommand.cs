@@ -1,12 +1,12 @@
-﻿using StudentSearch.Models;
-using StudentSearch.ViewModels;
+﻿using Searcher.Models;
+using Searcher.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 
-namespace StudentSearch.Commands;
+namespace Searcher.Commands;
 
 public class SearchStudentCommand : BaseCommand
 {

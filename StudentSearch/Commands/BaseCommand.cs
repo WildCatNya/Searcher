@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace StudentSearch.Commands;
+namespace Searcher.Commands;
 
 public abstract class BaseCommand : ICommand
 {

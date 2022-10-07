@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace StudentSearch.Helpers;
+namespace Searcher.Helpers;
 
 public class StudentShifrTranslitter
 {

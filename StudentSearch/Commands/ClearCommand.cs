@@ -1,9 +1,9 @@
-﻿using StudentSearch.ViewModels;
+﻿using Searcher.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Linq;
 
-namespace StudentSearch.Commands;
+namespace Searcher.Commands;
 
 public class ClearCommand : BaseCommand
 {
