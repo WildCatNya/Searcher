@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Searcher.Commands;
 
-public class ClearCommand : BaseCommand
+public class ClearStudentCommand : BaseCommand
 {
     private readonly StudentViewModel _vm;
-    public ClearCommand(StudentViewModel vm)
+    public ClearStudentCommand(StudentViewModel vm)
     {
         _vm = vm;
         _vm.PropertyChanged += OnViewModelPropertyChange;
@@ -24,9 +24,10 @@ public class ClearCommand : BaseCommand
     }
     private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(_vm.Students))
-        {
-            OnCanExecuteChanged();
-        }
+        //if (e.PropertyName == nameof(_vm.Students))
+        //{
+        //    OnCanExecuteChanged();
+        //}
+        OnCanExecuteChanged();
     }
 }

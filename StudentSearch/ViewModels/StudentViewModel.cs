@@ -1,4 +1,5 @@
 ﻿using Searcher.Commands;
+using Searcher.Helpers;
 using Searcher.Models;
 using System.Collections.ObjectModel;
 
@@ -42,7 +43,7 @@ public class StudentViewModel : BaseViewModel
     public StudentViewModel()
     {
         SearchCommand = new SearchStudentCommand(this);
-        ClearCommand = new ClearCommand(this);
+        ClearCommand = new ClearStudentCommand(this);
         NavigateTeacherCommand = new NavigateCommand(() => new TeacherViewModel());
     }
 }

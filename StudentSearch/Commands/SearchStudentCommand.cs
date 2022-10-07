@@ -31,9 +31,10 @@ public class SearchStudentCommand : BaseCommand
     }
     private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(_vm.Searcher))
-        {
-            OnCanExecuteChanged();
-        }
+        //if (e.PropertyName == nameof(_vm.Searcher))
+        //{
+        //    OnCanExecuteChanged();
+        //}
+        OnCanExecuteChanged();
     }
 }

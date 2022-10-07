@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:Searcher.Views"
         xmlns:viewmodels="clr-namespace:Searcher.ViewModels"
         mc:Ignorable="d"
-        Title="Поиск" Height="780" Width="950">
+        Title="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Height="780" Width="950">
     <Window.DataContext>
         <viewmodels:MainWindowViewModel />
     </Window.DataContext>
