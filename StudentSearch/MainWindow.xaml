@@ -3,11 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StudentSearch"
         xmlns:views="clr-namespace:StudentSearch.Views"
+        xmlns:viewmodels="clr-namespace:StudentSearch.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="780" Width="950">
-    <Grid>
-        <views:StudentView />
-    </Grid>
+        Title="Поиск" Height="780" Width="950">
+    <Window.DataContext>
+        <viewmodels:MainWindowViewModel />
+    </Window.DataContext>
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:StudentViewModel}">
+                <views:StudentView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:TeacherViewModel}">
+                <views:TeacherView />
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
 </Window>

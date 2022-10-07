@@ -8,10 +8,10 @@ using System.Windows;
 
 namespace StudentSearch.Commands;
 
-public class SearchCommand : BaseCommand
+public class SearchStudentCommand : BaseCommand
 {
     private readonly StudentViewModel _vm;
-    public SearchCommand(StudentViewModel vm)
+    public SearchStudentCommand(StudentViewModel vm)
     {
         _vm = vm;
         _vm.PropertyChanged += OnViewModelPropertyChange;

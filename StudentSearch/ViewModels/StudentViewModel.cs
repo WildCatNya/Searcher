@@ -13,7 +13,7 @@ public class StudentViewModel : BaseViewModel
         set
         {
             _searcher = value;
-            OnPropertyChanged(nameof(Searcher));
+            OnPropertyChanged();
         }
     }
     private Student? _selectedStudent;
@@ -23,24 +23,26 @@ public class StudentViewModel : BaseViewModel
         set
         {
             _selectedStudent = value;
-            OnPropertyChanged(nameof(SelectedStudent));
+            OnPropertyChanged();
         }
     }
-    private ObservableCollection<Student>? _students = new();
-    public ObservableCollection<Student>? Students
+    private ObservableCollection<Student> _students = new();
+    public ObservableCollection<Student> Students
     {
         get => _students;
         set
         {
             _students = value;
-            OnPropertyChanged(nameof(Students));
+            OnPropertyChanged();
         }
     }
     public BaseCommand SearchCommand { get; }
     public BaseCommand ClearCommand { get; }
+    public BaseCommand NavigateTeacherCommand { get; }
     public StudentViewModel()
     {
-        SearchCommand = new SearchCommand(this);
+        SearchCommand = new SearchStudentCommand(this);
         ClearCommand = new ClearCommand(this);
+        NavigateTeacherCommand = new NavigateCommand(() => new TeacherViewModel());
     }
 }
