@@ -42,8 +42,7 @@ public class StudentViewModel : BaseViewModel
     public BaseCommand NavigateTeacherCommand { get; }
     public StudentViewModel()
     {
-        SearchCommand = new SearchStudentCommand(this);
-        ClearCommand = new ClearStudentCommand(this);
-        NavigateTeacherCommand = new NavigateCommand(() => new TeacherViewModel());
+        SearchCommand = new SearchCommand(this);
+        ClearCommand = new ClearCommand(this);
     }
 }

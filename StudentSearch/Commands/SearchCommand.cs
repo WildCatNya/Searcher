@@ -8,10 +8,10 @@ using System.Windows;
 
 namespace Searcher.Commands;
 
-public class SearchStudentCommand : BaseCommand
+public class SearchCommand : BaseCommand
 {
     private readonly StudentViewModel _vm;
-    public SearchStudentCommand(StudentViewModel vm)
+    public SearchCommand(StudentViewModel vm)
     {
         _vm = vm;
         _vm.PropertyChanged += OnViewModelPropertyChange;
@@ -31,10 +31,9 @@ public class SearchStudentCommand : BaseCommand
     }
     private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
     {
-        //if (e.PropertyName == nameof(_vm.Searcher))
-        //{
-        //    OnCanExecuteChanged();
-        //}
-        OnCanExecuteChanged();
+        if (e.PropertyName == nameof(_vm.Searcher))
+        {
+            OnCanExecuteChanged();
+        }
     }
 }

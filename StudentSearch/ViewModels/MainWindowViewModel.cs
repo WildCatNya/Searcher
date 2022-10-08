@@ -1,7 +1,4 @@
-﻿using Searcher.Helpers;
-using System.Windows;
-
-namespace Searcher.ViewModels;
+﻿namespace Searcher.ViewModels;
 
 public class MainWindowViewModel : BaseViewModel
 {

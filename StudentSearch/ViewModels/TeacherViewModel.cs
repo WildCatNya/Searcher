@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace Searcher.ViewModels;
 
-public class TeacherViewModel : BaseViewModel
+public class PersonViewModel<PersonType> : BaseViewModel
 {
     private string? _searcher;
     public string? Searcher
@@ -17,8 +17,8 @@ public class TeacherViewModel : BaseViewModel
             OnPropertyChanged();
         }
     }
-    private Teacher? _selectedTeacher;
-    public Teacher? SelectedTeacher
+    private PersonType? _selectedTeacher;
+    public PersonType? SelectedTeacher
     {
         get => _selectedTeacher;
         set
@@ -27,23 +27,21 @@ public class TeacherViewModel : BaseViewModel
             OnPropertyChanged();
         }
     }
-    private ObservableCollection<Teacher> _teachers = new();
-    public ObservableCollection<Teacher> Teachers
+    private ObservableCollection<PersonType> _personCollection = new();
+    public ObservableCollection<PersonType> PersonCollection
     {
-        get => _teachers;
+        get => _personCollection;
         set
         {
-            _teachers = value;
+            _personCollection = value;
             OnPropertyChanged();
         }
     }
     public BaseCommand SearchCommand { get; }
     public BaseCommand ClearCommand { get; }
-    public BaseCommand NavigateStudentCommand { get; }
-    public TeacherViewModel()
+    public PersonViewModel()
     {
-        SearchCommand = new SearchTeacherCommand(this);
-        ClearCommand = new ClearTeacherCommand(this);
-        NavigateStudentCommand = new NavigateCommand(() => new StudentViewModel());
+        SearchCommand = new SearchCommand(this);
+        ClearCommand = new ClearCommand<PersonType>(this);
     }
 }

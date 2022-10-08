@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.IO;
 
 namespace Searcher.Models;
 
@@ -20,8 +19,8 @@ public class Teacher
         return Fio.ToLower().Contains(searcher) ||
             Login.ToLower().Contains(searcher);
     }
-    public static IEnumerable<Teacher> GetTeachers()
+    public static void GetTeachers()
     {
-        throw new NotImplementedException();
+        throw new System.NotImplementedException();
     }
 }
