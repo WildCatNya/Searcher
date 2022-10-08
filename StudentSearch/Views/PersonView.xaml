@@ -6,9 +6,6 @@
              xmlns:viewmodel="clr-namespace:Searcher.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <viewmodel:PersonViewModel />
-    </UserControl.DataContext>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -18,12 +15,6 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Переход к преподавателям" Margin="0 0 100 0" Width="175" Command="{Binding NavigateTeacherCommand}" />
-            <TextBox Grid.ColumnSpan="2" Width="250" Height="25" Text="{Binding Searcher, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
-            <Button Margin="30 0 0 0" Grid.ColumnSpan="2" Command="{Binding SearchCommand}" Content="Поиск" Width="100" />
-            <Button Margin="30 0 0 0" Command="{Binding ClearCommand}" Width="100" Content="Очистить" />
-        </StackPanel>
         <ListBox Grid.Row="1" ItemsSource="{Binding Students}"
                  SelectedItem="{Binding SelectedStudent}"
                  Margin="0 5 0 0">
