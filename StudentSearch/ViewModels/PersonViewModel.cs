@@ -1,5 +1,4 @@
 ﻿using Searcher.Commands;
-using Searcher.Helpers;
 using Searcher.Models;
 using System.Collections.ObjectModel;
 
@@ -41,7 +40,7 @@ public class PersonViewModel<PersonType> : BaseViewModel
     public BaseCommand ClearCommand { get; }
     public PersonViewModel()
     {
-        SearchCommand = new SearchCommand(this);
+        SearchCommand = new SearchCommand<PersonType>(this);
         ClearCommand = new ClearCommand<PersonType>(this);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Searcher.ViewModels;
+﻿using Searcher.Models;
+
+namespace Searcher.ViewModels;
 
 public class MainWindowViewModel : BaseViewModel
 {
@@ -6,7 +8,7 @@ public class MainWindowViewModel : BaseViewModel
     public MainWindowViewModel()
     {
         _navigationStore = NavigationStore.GetNavigationStore();
-        _navigationStore.CurrentViewModel = new StudentViewModel();
+        _navigationStore.CurrentViewModel = new PersonViewModel<Student>();
         _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
     }
     private string? _title;
@@ -22,14 +24,6 @@ public class MainWindowViewModel : BaseViewModel
     public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
     private void OnCurrentViewModelChanged()
     {
-        if (_navigationStore.CurrentViewModel.ToString().Contains(nameof(StudentViewModel)))
-        {
-            Title = "Поиск студентов";
-        }
-        if (_navigationStore.CurrentViewModel.ToString().Contains(nameof(TeacherViewModel)))
-        {
-            Title = "Поиск преподавателей";
-        }
         OnPropertyChanged(nameof(CurrentViewModel));
     }
 }

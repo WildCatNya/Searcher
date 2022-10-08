@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System;
 
 namespace Searcher.Models;
 
@@ -21,6 +21,6 @@ public class Teacher
     }
     public static void GetTeachers()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }

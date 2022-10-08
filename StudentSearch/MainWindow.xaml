@@ -6,18 +6,11 @@
         xmlns:views="clr-namespace:Searcher.Views"
         xmlns:viewmodels="clr-namespace:Searcher.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Height="780" Width="950">
+        Title="Поиск" Height="780" Width="950">
     <Window.DataContext>
         <viewmodels:MainWindowViewModel />
     </Window.DataContext>
-    <ContentControl Content="{Binding CurrentViewModel}">
-        <ContentControl.Resources>
-            <DataTemplate DataType="{x:Type viewmodels:StudentViewModel}">
-                <views:StudentView />
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:TeacherViewModel}">
-                <views:TeacherView />
-            </DataTemplate>
-        </ContentControl.Resources>
-    </ContentControl>
+    <Grid>
+        <views:StudentView />
+    </Grid>
 </Window>
