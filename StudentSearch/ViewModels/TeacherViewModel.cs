@@ -1,5 +1,5 @@
 ﻿using Searcher.Commands;
-using Searcher.Helpers;
+using Searcher.Commands.Teacher;
 using Searcher.Models;
 using System.Collections.ObjectModel;
 

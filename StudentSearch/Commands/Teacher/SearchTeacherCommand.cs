@@ -1,17 +1,15 @@
-﻿using Searcher.Models;
-using Searcher.ViewModels;
-using System;
+﻿using Searcher.ViewModels;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 
-namespace Searcher.Commands;
+namespace Searcher.Commands.Teacher;
 
-public class SearchStudentCommand : BaseCommand
+public class SearchTeacherCommand : BaseCommand
 {
-    private readonly StudentViewModel _vm;
-    public SearchStudentCommand(StudentViewModel vm)
+    private readonly TeacherViewModel _vm;
+    public SearchTeacherCommand(TeacherViewModel vm)
     {
         _vm = vm;
         _vm.PropertyChanged += OnViewModelPropertyChange;
@@ -22,12 +20,13 @@ public class SearchStudentCommand : BaseCommand
     }
     public override void Execute(object? parameter)
     {
-        IEnumerable<Student>? searchResult = Student.GetStudents().Where(x => x.Contains(_vm.Searcher));
-        _vm.Students = new(searchResult);
+        IEnumerable<Models.Teacher>? searchResult = Models.Teacher.GetTeachers().Where(x => x.Contains(_vm.Searcher));
         if (!searchResult.Any())
         {
             MessageBox.Show("Ничего не найдено");
+            return;
         }
+        _vm.Teachers = new(searchResult);
     }
     private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
     {

@@ -1,23 +1,23 @@
 ﻿using Searcher.ViewModels;
 using System.ComponentModel;
 
-namespace Searcher.Commands;
+namespace Searcher.Commands.Student;
 
-public class ClearTeacherCommand : BaseCommand
+public class ClearStudentCommand : BaseCommand
 {
-    private readonly TeacherViewModel _vm;
-    public ClearTeacherCommand(TeacherViewModel vm)
+    private readonly StudentViewModel _vm;
+    public ClearStudentCommand(StudentViewModel vm)
     {
         _vm = vm;
         _vm.PropertyChanged += OnViewModelPropertyChange;
     }
     public override bool CanExecute(object? parameter)
     {
-        return _vm.Teachers.Count > 0;
+        return _vm.Students.Count > 0;
     }
     public override void Execute(object? parameter)
     {
-        _vm.Teachers = new();
+        _vm.Students = new();
         _vm.Searcher = string.Empty;
     }
     private void OnViewModelPropertyChange(object? sender, PropertyChangedEventArgs e)
